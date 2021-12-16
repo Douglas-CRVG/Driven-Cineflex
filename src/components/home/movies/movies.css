@@ -1,0 +1,7 @@
+.container{
+    background-color: #abcdef;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 11px 30px;
+}
