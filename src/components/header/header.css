@@ -1,0 +1,14 @@
+header{
+    width: 100%;
+    padding: 16.5px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #c3cfd9;
+}
+
+header h1{
+    font-size: 34px;
+    text-align: center;
+    color: #E8833A;
+}
