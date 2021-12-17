@@ -1,7 +1,2 @@
-/*  CONTAINER ROOMS  */
-.container-rooms{
-    margin-top: 22px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
+.session{
 }

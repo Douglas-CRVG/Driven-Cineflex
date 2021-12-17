@@ -1,13 +1,17 @@
 import "./session.css";
-import Button from "../../others/button/Button";
+import ContainerRooms from "./containerRooms/ContainerRooms";
 
-export default function Session(){
+export default function Session(props){
+    const {
+        date,
+        showtimes,
+        weekday
+    } = props;
+
     return(
         <div className="session">
-            <p>Data-feira - 16/12/2021</p>
-            <div className="container-rooms">
-                <Button />
-            </div>
+            <p>{`${weekday} - ${date}`}</p>
+            <ContainerRooms showtimes={showtimes} />
         </div>
     );
 }

@@ -9,6 +9,16 @@ export default function Movies() {
         getMovies().then((response)=> setData(response.data));
     },[]);
 
+    if(data.length === 0){ 
+        return (
+            <main>
+                <h1>
+                Carregando...
+                </h1>
+            </main>
+        );
+    }
+
     return(
         <div className="container">
             {data.map(({id, overview, posterURL}, index)=><Movie key={index} id={id} overview={overview} posterURL={posterURL}/>)}
