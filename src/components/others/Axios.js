@@ -3,19 +3,19 @@ import axios from "axios";
 const Url = "https://mock-api.driven.com.br/api/v4/cineflex";
 
 function getMovies() {
-    axios.get(`${Url}/movies`)
+    return axios.get(`${Url}/movies`);
 }
 
 function getSessions(idMovie) {
-    axios.get(`${Url}/movies/${idMovie}/showtimes`)
+    return axios.get(`${Url}/movies/${idMovie}/showtimes`);
 }
 
 function getSeats(idSession) {
-    axios.get(`${Url}/showtimes/${idSession}/seats`)
+    return axios.get(`${Url}/showtimes/${idSession}/seats`);
 }
 
 function postSeats(data) {
-    axios.post(`${Url}/seats/book-many`, data)
+    return axios.post(`${Url}/seats/book-many`, data);
 }
 
 export {

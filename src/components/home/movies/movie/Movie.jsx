@@ -1,58 +1,12 @@
 import { Link } from "react-router-dom"
 import "./movie.css"
 
-export default function Movie({idMovie}){
-
+export default function Movie({id, overview, posterURL}) {
     return(
         <>
-            <Link to={`/sessoes/:${idMovie}`}>
+            <Link to={`/sessoes/${id}`}>
                 <div className="movie">
-                    <img src="" alt="" />
-                </div>
-            </Link>
-            <Link to={`/sessoes/:${idMovie}`}>
-                <div className="movie">
-                    <img src="" alt="" />
-                </div>
-            </Link>
-            <Link to={`/sessoes/:${idMovie}`}>
-                <div className="movie">
-                    <img src="" alt="" />
-                </div>
-            </Link>
-            <Link to={`/sessoes/:${idMovie}`}>
-                <div className="movie">
-                    <img src="" alt="" />
-                </div>
-            </Link>
-            <Link to={`/sessoes/:${idMovie}`}>
-                <div className="movie">
-                    <img src="" alt="" />
-                </div>
-            </Link>
-            <Link to={`/sessoes/:${idMovie}`}>
-                <div className="movie">
-                    <img src="" alt="" />
-                </div>
-            </Link>
-            <Link to={`/sessoes/:${idMovie}`}>
-                <div className="movie">
-                    <img src="" alt="" />
-                </div>
-            </Link>
-            <Link to={`/sessoes/:${idMovie}`}>
-                <div className="movie">
-                    <img src="" alt="" />
-                </div>
-            </Link>
-            <Link to={`/sessoes/:${idMovie}`}>
-                <div className="movie">
-                    <img src="" alt="" />
-                </div>
-            </Link>
-            <Link to={`/sessoes/:${idMovie}`}>
-                <div className="movie">
-                    <img src="" alt="" />
+                    <img src={posterURL} alt={overview} />
                 </div>
             </Link>
         </>
