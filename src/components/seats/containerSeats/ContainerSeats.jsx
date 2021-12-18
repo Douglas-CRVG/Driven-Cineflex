@@ -1,8 +1,9 @@
+import { useState } from "react";
 import "./containerSeats.css"
 import Seat from "./seat/Seat";
 
-export default function ContainerSeats({seats}){
-    console.log(seats);
+export default function ContainerSeats({seats, buyerClone, setBuyer}) {
+    const [buySeats, setBuySeats] = useState([])
     return(
         <div className="container-seats">
             {seats.map((seat, index) =>{
@@ -12,7 +13,12 @@ export default function ContainerSeats({seats}){
                     name
                 } = seat;
                 return(
-                    <Seat id={id} isAvailable={isAvailable} name={name} />
+                    <Seat
+                    setBuySeats={setBuySeats}
+                    buySeats={buySeats}
+                    id={id}
+                    isAvailable={isAvailable}
+                    name={name} />
                 );
             })}
         </div>
