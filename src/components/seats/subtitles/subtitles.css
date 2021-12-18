@@ -1,0 +1,5 @@
+.subtitles{
+    margin: 16px 0 42px;
+    display: flex;
+    justify-content: space-around;
+}

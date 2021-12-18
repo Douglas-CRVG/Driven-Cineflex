@@ -9,3 +9,7 @@ main{
     margin-top: 67px;
     padding: 0 25px;
 }
+
+main button{
+    display: block;
+}

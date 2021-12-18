@@ -1,0 +1,11 @@
+.container-seats button {
+    width: 26px;
+    height: 26px;
+    font-size: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #808F9D;
+    border-radius: 13px;
+    background-color: #C3CFD9;
+}

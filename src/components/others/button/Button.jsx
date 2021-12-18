@@ -2,7 +2,7 @@ import "./button.css"
 
 export default function Button({text}) {
     return(
-        <button>
+        <button className="button">
             {text}
         </button>
     );

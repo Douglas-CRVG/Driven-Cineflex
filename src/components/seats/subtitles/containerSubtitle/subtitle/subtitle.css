@@ -1,0 +1,20 @@
+.subtitle{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+}
+
+.selected{
+    border: 1px solid #1AAE9E;
+    background-color: #8DD7CF;
+}
+
+.available{
+    border: 1px solid #7B8B99;
+    background-color: #C3CFD9;
+}
+
+.unavailable{
+    border: 1px solid #F7C52B;
+    background-color: #FBE192;
+}

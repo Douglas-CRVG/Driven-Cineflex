@@ -1,0 +1,10 @@
+.container-subtitle{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.container-subtitle p{
+    font-size: 13px;
+}
