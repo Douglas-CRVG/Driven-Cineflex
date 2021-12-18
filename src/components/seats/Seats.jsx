@@ -1,23 +1,48 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import TitlePage from "../others/titlePage/TitlePage";
 import ContainerSeats from "./containerSeats/ContainerSeats";
 import Subtitles from "./subtitles/Subtitles";
 import Button from "../others/button/Button";
 import Inputs from "./inputs/Inputs";
+import { useEffect, useState } from "react";
+import { getSeats } from "../others/Axios";
+import Footer from "../others/footer/Footer";
 
 export default function Seats(){
+    const [seats, setSeats] = useState([]);
     const {idSessao} = useParams();
-    console.log(idSessao)
+
+    useEffect(()=>{
+        getSeats(idSessao).then((response)=>setSeats(response.data));
+    },[]);
+
+    if(seats.length === 0){ 
+        return (
+            <main>
+                <h1>
+                    Carregando...
+                </h1>
+            </main>
+        );
+    }
 
     return(
         <>
             <main>
-                <TitlePage text="Selecione o(s) assento(s)" />
-                <ContainerSeats />
+                <TitlePage
+                text="Selecione o(s) assento(s)" />
+                <ContainerSeats
+                seats={seats.seats} />
                 <Subtitles />
                 <Inputs />
-                <Button text="Reservar assento(s)" />
+                <Button
+                text="Reservar assento(s)" />
             </main>
+            <Footer
+            title={seats.movie.title}
+            overview={seats.movie.overview}
+            posterURL={seats.movie.posterURL}
+            session={`${seats.day.weekday} - ${seats.name}`}/>
         </>
     );
 }

@@ -1,59 +1,20 @@
 import "./containerSeats.css"
 import Seat from "./seat/Seat";
 
-export default function ContainerSeats(){
+export default function ContainerSeats({seats}){
+    console.log(seats);
     return(
         <div className="container-seats">
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
-            <Seat />
+            {seats.map((seat, index) =>{
+                const {
+                    id,
+                    isAvailable,
+                    name
+                } = seat;
+                return(
+                    <Seat id={id} isAvailable={isAvailable} name={name} />
+                );
+            })}
         </div>
     );
 }

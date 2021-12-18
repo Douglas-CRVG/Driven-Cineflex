@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { getSessions } from "../others/Axios";
 import ContainerSessions from "./containerSessions/ContainerSessions";
+import Footer from "../others/footer/Footer";
 
 export default function Sessions() {
     const { idFilme } = useParams();
@@ -20,14 +21,13 @@ export default function Sessions() {
             </main>
         );
     }
-
-    console.log("Renderizou", sessions);
     return(
         <>
             <main>
                 <TitlePage text="Selecione o horário" />
                 <ContainerSessions days={sessions.days}/>
             </main>
+            <Footer title={sessions.title} overview={sessions.overview} posterURL={sessions.posterURL}/>
         </>
     )
 }

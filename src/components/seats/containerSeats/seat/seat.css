@@ -5,7 +5,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid #808F9D;
     border-radius: 13px;
+}
+
+
+
+.available{
+    border: 1px solid #7B8B99;
     background-color: #C3CFD9;
+}
+
+.unavailable{
+    border: 1px solid #F7C52B;
+    background-color: #FBE192;
+}
+
+.selected{
+    border: 1px solid #1AAE9E;
+    background-color: #8DD7CF;
 }

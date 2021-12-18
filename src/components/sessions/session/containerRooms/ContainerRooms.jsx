@@ -7,8 +7,8 @@ export default function ContainerRooms({showtimes}){
         <div className="container-rooms">
             {showtimes.map(({id, name}, index) =>{
                 return (
-                    <Link to={`/assentos/${id}`}> 
-                        <Button key={index} text={name} />
+                    <Link key={index} to={`/assentos/${id}`}> 
+                        <Button text={name} />
                     </Link>
                 );
             })}

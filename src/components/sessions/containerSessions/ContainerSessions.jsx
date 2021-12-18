@@ -2,8 +2,6 @@ import "./containerSessions.css";
 import Session from "../session/Session";
 
 export default function ContainerSessions({days}){
-    console.log(days);
-
     return(
         <div className="container-sessions">
             {days.map((day, index) => {
