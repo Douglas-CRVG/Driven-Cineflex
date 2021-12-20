@@ -1,7 +1,11 @@
 import "./containerSeats.css"
 import Seat from "./seat/Seat";
 
-export default function ContainerSeats({seats}) {
+export default function ContainerSeats({
+    seats,
+    setBuySeats,
+    buySeats
+}) {
     return(
         <div className="container-seats">
             {seats.map((seat, index) =>{
@@ -16,6 +20,8 @@ export default function ContainerSeats({seats}) {
                     id={id}
                     isAvailable={isAvailable}
                     name={name}
+                    setBuySeats={setBuySeats}
+                    buySeats={buySeats}
                     />
                 );
             })}

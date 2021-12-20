@@ -1,3 +1,4 @@
+import "./seats.css";
 import { useParams } from "react-router-dom";
 import TitlePage from "../others/titlePage/TitlePage";
 import ContainerSeats from "./containerSeats/ContainerSeats";
@@ -8,16 +9,20 @@ import { useEffect, useState } from "react";
 import { getSeats } from "../others/Axios";
 import Footer from "../others/footer/Footer";
 
-export default function Seats(){
+export default function Seats({setBuyer, buyer}){
 
     const {idSessao} = useParams();
     const [seats, setSeats] = useState([]);
-    const [buySeats, setBuySeats] = ([]);
-    let buyerClone = {};
+    const [buySeats, setBuySeats] = useState([]);
+    const [buyerData, setBuyerData]=useState({});
 
     useEffect(()=>{
         getSeats(idSessao).then((response)=>setSeats(response.data));
     },[]);
+
+    useEffect(()=>{
+        setBuyer({...buyer})
+    }, [buySeats, buyerData]);
 
     if(seats.length === 0){ 
         return (
@@ -28,17 +33,18 @@ export default function Seats(){
             </main>
         );
     } else {
-        buyerClone = {
+        buyer = {
             movie: seats.movie.title,
             session: `${seats.day.date}  ${seats.name}`,
-            buySeats
+            buySeats,
+            buyerData
         };
-        console.log(buyerClone);
     }
+
 
     return(
         <>
-            <main>
+            <main className="seats">
                 <TitlePage
                 text="Selecione o(s) assento(s)"
                 />
@@ -48,8 +54,13 @@ export default function Seats(){
                 buySeats={buySeats}
                 />
                 <Subtitles />
-                <Inputs/>
+                <Inputs
+                setBuyerData={setBuyerData}
+                buyerData={buyerData}
+                />
                 <Button
+                buyer={buyer}
+                bool={true}
                 text="Reservar assento(s)" />
             </main>
             <Footer

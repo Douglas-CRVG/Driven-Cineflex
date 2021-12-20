@@ -1,27 +1,27 @@
-import "./finish.css"
+import "./sucess.css"
 import TitlePage from "../others/titlePage/TitlePage";
 import Button from "../others/button/Button";
 import { Link } from "react-router-dom";
 
-export default function Finish() {
+export default function Sucess({buyer}) {
+    console.log(buyer)
     return(
-        <main>
+        <main className="sucess">
             <TitlePage text="Pedido feito com sucesso!" />
             <div className="data">
                 <div>
                     <h1>Filme e sessão</h1>
-                    <p>Filme</p>
-                    <p>data - hora</p>
+                    <p>{buyer.movie}</p>
+                    <p>{buyer.session}</p>
                 </div>
                 <div>
                     <h1>Ingressos</h1>
-                    <p>Assento x</p>
-                    <p>Assento y</p>
+                    {buyer.buySeats.map((seat, index) => <p key={index}>Assento {seat.name}</p>)}
                 </div>
                 <div>
                     <h1>Comprador</h1>
-                    <p>Nome: João Driven</p>
-                    <p>CPF: 000.000.000-00</p>
+                    <p>Nome: {buyer.buyerData.name}</p>
+                    <p>CPF: {buyer.buyerData.cpf.substring(0,3)}.{buyer.buyerData.cpf.substring(3,6)}.{buyer.buyerData.cpf.substring(6,9)}-{buyer.buyerData.cpf.substring(9,11)}</p>
                 </div>
             </div>
             <Link to="/">
