@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
+import { postSeats } from "../Axios";
 import "./button.css"
 
 export default function Button({text, bool, buyer}) {
     const navigate = useNavigate();
 
     function validatePurchase(){
-        console.log(buyer)
         const {
             buySeats,
             buyerData
@@ -17,6 +17,7 @@ export default function Button({text, bool, buyer}) {
                 cpf: buyerData.cpf
             }
             console.log(body);
+            //postSeats(body)    TIRAR O COMENTÁRIO ANTES DE ENVIAAAAAAAAAR
             navigate("/sucesso", {replace: true})
         } else {
             alert("As informações devem ser preenchidas")
