@@ -1,12 +1,12 @@
 import "./seats.css";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import TitlePage from "../others/titlePage/TitlePage";
 import ContainerSeats from "./containerSeats/ContainerSeats";
 import Subtitles from "./subtitles/Subtitles";
 import Button from "../others/button/Button";
 import Inputs from "./inputs/Inputs";
 import { useEffect, useState } from "react";
-import { getSeats } from "../others/Axios";
+import { getSeats, postSeats } from "../others/Axios";
 import Footer from "../others/footer/Footer";
 
 export default function Seats({setBuyer, buyer}){
@@ -15,6 +15,27 @@ export default function Seats({setBuyer, buyer}){
     const [seats, setSeats] = useState([]);
     const [buySeats, setBuySeats] = useState([]);
     const [buyerData, setBuyerData]=useState({});
+    
+    const navigate = useNavigate();
+
+    function validatePurchase(){
+        const {
+            buySeats,
+            buyerData
+        } = buyer;
+
+        if((buySeats.length > 0) && (buyerData?.name !== "") && (buyerData?.cpf?.length === 11)){
+            let body = {
+                ids: buySeats.map(seat=> seat.id),
+                name: buyerData.name,
+                cpf: buyerData.cpf
+            };
+            postSeats(body);
+            navigate("/sucesso", {replace: true});
+        } else {
+            alert("As informações devem ser preenchidas corretamente")
+        }
+    }
 
     useEffect(()=>{
         getSeats(idSessao).then((response)=>setSeats(response.data));
@@ -59,15 +80,17 @@ export default function Seats({setBuyer, buyer}){
                 buyerData={buyerData}
                 />
                 <Button
-                buyer={buyer}
+                validatePurchase={validatePurchase}
                 bool={true}
-                text="Reservar assento(s)" />
+                text="Reservar assento(s)"
+                />
             </main>
             <Footer
             title={seats.movie.title}
             overview={seats.movie.overview}
             posterURL={seats.movie.posterURL}
-            session={`${seats.day.weekday} - ${seats.name}`}/>
+            session={`${seats.day.weekday} - ${seats.name}`}
+            />
         </>
     );
 }

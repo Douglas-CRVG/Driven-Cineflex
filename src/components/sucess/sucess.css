@@ -18,3 +18,11 @@
 .sucess button{
     margin: 0 auto;
 }
+
+.sucess > .title-page{
+    width: 160px;
+    margin: 0 auto 20px;
+    font-weight: 700;
+    color: #247A6B;
+    text-align: center;
+}
