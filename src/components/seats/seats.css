@@ -1,3 +1,8 @@
 .seats button{
     margin: 0 auto;
 }
+
+.seats > .title-page{
+    height: auto;
+    padding: 43px 0 23px;
+}

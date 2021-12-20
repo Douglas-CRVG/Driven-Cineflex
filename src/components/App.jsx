@@ -10,7 +10,6 @@ import Sessions from "./sessions/Sessions";
 
 export default function App(){
 	const [buyer, setBuyer] = useState({});
-	console.log("OBJETO PRINCIPAL", buyer)
 
 	return (
 		<BrowserRouter>

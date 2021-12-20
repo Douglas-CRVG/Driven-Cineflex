@@ -26,7 +26,7 @@ export default function Input({
         <input
         type="text"
         onChange = {(e)=>getInput(e.target.value)}
-        placeholder={`Digite seu ${text}...`}
+        placeholder={`Digite seu ${text === "Nome"? "nome": text}...`}
         value={input}
         />
     )
