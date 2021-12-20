@@ -9,15 +9,15 @@ import { getSeats } from "../others/Axios";
 import Footer from "../others/footer/Footer";
 
 export default function Seats(){
-	const [buyer, setBuyer] = useState([]);
-    const [seats, setSeats] = useState([]);
+
     const {idSessao} = useParams();
+    const [seats, setSeats] = useState([]);
+    const [buySeats, setBuySeats] = ([]);
     let buyerClone = {};
 
     useEffect(()=>{
         getSeats(idSessao).then((response)=>setSeats(response.data));
     },[]);
-    useEffect(()=>{setBuyer(buyerClone)},[])
 
     if(seats.length === 0){ 
         return (
@@ -29,14 +29,12 @@ export default function Seats(){
         );
     } else {
         buyerClone = {
-            ...buyer,
             movie: seats.movie.title,
             session: `${seats.day.date}  ${seats.name}`,
-            buySeats: []
+            buySeats
         };
+        console.log(buyerClone);
     }
-
-    console.log(seats, buyer)
 
     return(
         <>
@@ -45,18 +43,14 @@ export default function Seats(){
                 text="Selecione o(s) assento(s)"
                 />
                 <ContainerSeats
-                setBuyer={setBuyer}
-                buyer={buyer}
-                buyerClone={buyerClone}
                 seats={seats.seats}
+                setBuySeats={setBuySeats}
+                buySeats={buySeats}
                 />
                 <Subtitles />
-                <Inputs
-                setBuyer={setBuyer}
-                />
+                <Inputs/>
                 <Button
-                text="Reservar assento(s)"
-                />
+                text="Reservar assento(s)" />
             </main>
             <Footer
             title={seats.movie.title}

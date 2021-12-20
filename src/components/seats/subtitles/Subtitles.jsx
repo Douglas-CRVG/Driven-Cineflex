@@ -4,7 +4,7 @@ export default function Subtitles(){
 
     return(
         <div className="subtitles">
-            {["Selecionado","Disponível", "Indisponível"].map((subtitle)=> <ContainerSubtitle text={subtitle} />)}
+            {["Selecionado","Disponível", "Indisponível"].map((subtitle, index)=> <ContainerSubtitle key={index} text={subtitle} />)}
         </div>
     )
 }
